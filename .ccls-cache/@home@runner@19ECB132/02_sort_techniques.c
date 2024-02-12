@@ -105,7 +105,7 @@ void quick_sort(int first,int last) {
     
   }
 }
-
+/
 void shell_sort(int n) {
   // Rearrange elements at each n/2, n/4, n/8, ... intervals
   for (int interval = n / 2; interval > 0; interval /= 2) {
