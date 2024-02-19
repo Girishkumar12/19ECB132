@@ -1,5 +1,7 @@
 
 # include <stdio.h>
+#include <time.h>
+
 
 int input[10] = {10, 9, 8, 7, 6, 5, 1, 2, 3, 4};
   // Elements are hard coded
@@ -105,7 +107,7 @@ void quick_sort(int first,int last) {
     
   }
 }
-/
+
 void shell_sort(int n) {
   // Rearrange elements at each n/2, n/4, n/8, ... intervals
   for (int interval = n / 2; interval > 0; interval /= 2) {
@@ -151,6 +153,14 @@ void heap_sort(int n) {
 }
 
 int main(void) {
+
+  clock_t start, end;
+  double cpu_time_used;
+
+  start = clock();
+
+  
+  
   int choice=0;
     menu();
     printf("\nSelect the sorting technique: ");
@@ -180,6 +190,14 @@ int main(void) {
       
     }
   print_array();
+
+
+
+  end = clock();
+
+  cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+
+  printf("\nThe code took %f seconds to execute \n", cpu_time_used);
 
 }
 
