@@ -1,22 +1,65 @@
 #include <stdio.h>
+#define N 4 // Macros
 
-int main(void) {
-  int a,i,n1=0,n2=1,n3;
-  printf("enter a number");
-  scanf("%d",&a);
-  printf("%d\n",n1);
-  printf("%d\n",n2);
-  for (i=2;i<a;i++)
-    {
-      n3=n1+n2;
-      printf("%d\n",n3);
-      n1=n2;
-      n2=n3;
+// Function to input elements of a matrix
+void inputMatrix(int matrix[][N]) {
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+}
 
+// This function returns 1 if A[][] and B[][] are equal
+// otherwise it returns 0
+int areSame(int A[][N], int B[][N]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (A[i][j] != B[i][j])
+                return 0;
+        }
+    }
+    return 1;
+}
 
+// Driver code
+int main() {
 
+    // create two matrices
+    int A[N][N], B[N][N];
+
+    // Input elements for matrix A
+    printf("For Matrix A:\n");
+    inputMatrix(A);
+
+    // Input elements for matrix B
+    printf("For Matrix B:\n");
+    inputMatrix(B);
+
+    // Display first matrix
+    printf("\nFirst Matrix:\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d ", A[i][j]);
+        }
+        printf("\n");
     }
 
+    // Display second matrix
+    printf("\nSecond Matrix:\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d ", B[i][j]);
+        }
+        printf("\n");
+    }
 
-  return 0;
+    // Check if matrices are equal or not
+    if (areSame(A, B))
+        printf("\nMatrices are equal\n");
+    else
+        printf("\nMatrices are not equal\n");
+
+    return 0;
 }
